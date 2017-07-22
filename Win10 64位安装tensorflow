@@ -1,0 +1,83 @@
+
+
+Win10 64位安装tensorflow
+
+ 1、安装Anaconda
+
+ 下载：https://www.continuum.io/downloads，下载完以后，安装,安装时会弹出一个节目，问你要不要安装环境，系统默认的是“不安装”，实际上是要安装，你在选项前打钩就行了。安装完成后，系统自带Python 3.6，pip 。 
+
+安装完以后，打开win10的“运行”，输入“cmd”，出现命令窗口。
+
+在窗口输入清华的仓库镜像，更新包更快：
+
+ 
+
+conda config --add channels
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
+conda config --set show_channel_urls yes
+
+ 
+
+推荐第一行命令输入两次，以便把这个镜像地址放在首位。
+
+(这个是重点，安装时要下载文件，有了这个镜像站后，下载速度非常快，不然的话，原站点速度慢不说，经常是安装不了。)
+
+ 
+
+2.设置一个环境名字，随便取一个名字，比如：bunnies。在命令窗口输入
+
+  Conda create –n bunnies 
+
+   
+
+ 按照图示，把环境激活 activate bunnies.
+
+ 
+
+然后接着输入：
+
+Python
+
+(就进入了bunnies变量的python中)
+
+然后输入 
+
+Conda
+install tensorflow
+
+就可以自动按照tensorflow了，自动选择版本。
+
+
+
+ 
+
+（说明：网上均说必须Python3.5版本对应tensorflow1.0版本。高版本的python3.6的不行。实际上不是这样的。两个python版本都能用，自动下载对应的tensorflow版本。）
+
+然后就可以进行测试了。输入
+
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print sess.run(hello)
+Hello, TensorFlow!
+>>> a = tf.constant(10)
+>>> b = tf.constant(32)
+>>> print sess.run(a+b)
+42
+>>>
+
+5、测试成功接下来首先退出python 按快捷键Ctrl+D，或Quit()
+
+退出python.
+
+6、再退出tensorflow 在命令行输入命令：
+
+deactivate
+
+ (退出bunnies)
+
+ 
+
+ 
+
